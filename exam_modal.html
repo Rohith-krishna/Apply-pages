@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style>
+    .bg-primary
+  {
+  background-color: rgb(33, 36, 144);
+  }
+  .modal {
+   position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+ 
+}
+
+
+.modal-content{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ 
+}
+.show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+ </style>
+</head>
+<body class="bg-gray-100">
+ <button class="bg-blue-500 text-white rounded" id="myBtn">Open Modal</button>
+ <div class="md:my-20 ">
+  <div id="myModal" class="modal  ">
+   <div class="flex justify-center  ">
+    <div class="bg-white shadow-xl p-5 w-11/12 xl:w-2/5 rounded-lg modal-content" >
+     <div class="flex justify-end"><button id="close" class="outline-none focus:outline-none"><i class="fa fa-times hover:text-gray-500  text-gray-400" style="font-size: 20px;" aria-hidden="true"></i></button></div>
+     <div class="my-3"><img width="65" src="https://uat.greycampus.com/packs/media/images/icons/test-01b3ec93d4d6036f318d7c2f641dd51a.svg" class="m-auto"></div>
+     <div class="text-center text-2xl text-gray-700 font-bold">Entrance Exam</div>
+     <div class="my-10 text-center px-3 md:px-20 text-lg text-gray-500">
+        You already have an application for <span class="text-black font-semibold "> Web Development Career Program</span>, you can continue to take the entrance exam.
+     </div>
+     <div  class="my-10 text-center ">
+        <button class="bg-primary text-white p-2 rounded-md">Take exam</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <script>
+    const modal = document.querySelector(".modal");
+    const trigger = document.querySelector("#myBtn");
+    const closeButton = document.querySelector("#close");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+  </script>
+</body>
+</html>

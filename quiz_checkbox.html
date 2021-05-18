@@ -6,23 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz_checkbox.css">
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
-<body class="bg-blue-50">
-    <style>
-        input[type=checkbox]:checked+label .option-box {
-            background-color: #2f5bea;
-            color: #fff;
-        }
-        .d-none {
-            display: none!important;
-        }
-    </style>
+<body class="bg-blue-100">
     <section>
-        <div class="mx-5">
-            <div class="flex items-center justify-center font-sans" style="height: calc(100vh - 76px);">
+        <div class="flex justify-between p-5 bg-white" style="height: 70px;">
+            <div>
+                <p class="ellipsis">Entrance Exam | Section 1 (General Aptitude)</p>
+            </div>
+            <div>
+                <div class="flex gap-4">
+                    <p><i class="fas fa-exclamation-circle fa-sm"></i></p>
+                    <p class="font-semibold"><i class="far fa-clock fa-sm xl:block lg:block md:block hidden"></i> 00:13:58</p>
+                </div>
+            </div>
+        </div>
+        <div class="mx-5 quiz-page">
+            <div class="flex items-center justify-center font-sans">
                 <div class="w-full xl:w-3/4">
-                    <div class="bg-white border-b-2 rounded p-8 overflow-y-auto" style="height: 500px;">
+                    <div class="bg-white border-b-2 rounded p-8 overflow-y-auto"  style="height: calc(100vh - 180px);
+                    overflow-y: auto;">
                         <div class="border-b-2 flex flex-wrap justify-between mb-4">
                             <p class="mb-4 font-semibold text-gray-800">Question 18</p>
                             <p class="font-extralight text-gray-200">ID:18355</p>
@@ -94,13 +99,52 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white p-4 self-center">
-            <div class="flex justify-center">
-                <button class="border-2 focus:outline-none btn-outline-primary mx-3 p-2 rounded-full border-blue-200">
+        <div class="bg-white bottom-0 self-center" style="height: 70px;">
+            <div class="text-center">
+                <button id="myBtn" class="self-center border-2 mt-3 focus:outline-none btn-outline-primary mx-3 p-2 rounded-full border-blue-200">
                     <i class="far fa-dot-circle mr-1"></i>End Exam
                 </button>
             </div>
         </div>
+        <div id="myModal" class="modal">
+            <div class="flex justify-center  ">
+             <div class="bg-white shadow-xl p-5 w-11/12 xl:w-2/5 rounded-lg modal-content" >
+                <div class="flex justify-end"><button id="close" class="outline-none focus:outline-none"><i class="fa fa-times hover:text-gray-500  text-gray-400" style="font-size: 20px;" aria-hidden="true"></i></button></div>
+                <div class="p-4 flex space-x-4 flex-col text-center items-center">
+                    <div>
+                        <p class="text-gray-500 text-2xl">
+                            Are you sure you want to finish your exam?
+                        </p>
+                    </div>
+                </div>
+                <div class="p-3 text-center md:space-x-4 md:block flex flex-col-reverse">
+                    <button class="px-4 md:py-1.5 py-2 bg-white border-2 rounded-lg focus:ring-offset-2 focus:outline-none focus:ring-2 focus:ring-blue-800 hover:bg-gray-50">
+                        Take me back
+                    </button>
+                    <button class="mb-2 md:mb-0 px-4 md:py-1.5 py-2 bg-blue-700 text-white rounded-lg focus:ring-offset-2 focus:outline-none focus:ring-2 focus:ring-blue-800 hover:bg-blue-800">
+                        Submit
+                    </button>
+                </div>
+             </div>
+            </div>
+           </div>
+        <script>
+            const modal = document.querySelector(".modal");
+            const trigger = document.querySelector("#myBtn");
+            const closeButton = document.querySelector("#close");
+        
+            function toggleModal() {
+                modal.classList.toggle("show-modal");
+            }
+            function windowOnClick(event) {
+                if (event.target === modal) {
+                    toggleModal();
+                }
+            }
+            trigger.addEventListener("click", toggleModal);
+            closeButton.addEventListener("click", toggleModal);
+            window.addEventListener("click", windowOnClick);
+          </script>
     </section>
 </body>
 </html>

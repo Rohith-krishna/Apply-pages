@@ -1,0 +1,39 @@
+input[type=radio]:checked+label .option-box {
+    background-color: #2f5bea;
+    color: #fff;
+    border-radius: 50%;
+}
+.d-none {
+    display: none!important;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(184, 182, 182); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(212, 212, 212); 
+  }
+
+  .quiz-page {
+    padding: 20px 5px 20px;
+    min-height: calc(100vh - 140px);
+  }
+  @media(max-width:760px){
+  .ellipsis{
+    white-space: nowrap;
+    width: 115px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  }
